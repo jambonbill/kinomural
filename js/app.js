@@ -65,10 +65,11 @@ class Kino{
         let dice=rnd(5)
         switch (dice) {
             case 0:this.render();break;
-            case 1:this.render2();break;
-            case 2:this.render2b();break;
-            case 3:this.render9();break;
-            case 4:this.render9b();break;
+            case 1:this.render1();break;
+            case 2:this.render2();break;
+            case 3:this.render2b();break;
+            case 5:this.render9();break;
+            case 5:this.render9b();break;
         }
         console.log("Dice:", dice);
         this.step++;
@@ -101,6 +102,19 @@ class Kino{
             htm+= "</tr>";
         }
 
+        htm+= "</table>";
+        this.container.innerHTML = htm; // Clear previous content
+    }
+
+    render1(){
+        console.log("Rendering image:", this.files[0]);
+
+        this.container.innerHTML = ''; // Clear previous content
+
+        let htm= "<table>";
+        htm+= "<tr>";
+        htm+= `<td><img src='img/${this.files[0]}'></td>`;
+        htm+= "</tr>";
         htm+= "</table>";
         this.container.innerHTML = htm; // Clear previous content
     }
