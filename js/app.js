@@ -68,7 +68,7 @@ class Kino{
             case 1:this.render1();break;
             case 2:this.render2();break;
             case 3:this.render2b();break;
-            case 5:this.render9();break;
+            case 4:this.render9();break;
             case 5:this.render9b();break;
         }
         console.log("Dice:", dice);
