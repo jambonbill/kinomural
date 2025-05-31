@@ -108,12 +108,10 @@ class Kino{
     render2(){
         let htm= "<table>";
         let size=2
-        let n=0;
         for(let i=0; i<size; i++){
             htm+= "<tr>";
             for(let j=0; j<size; j++){
                 htm+= `<td><img src='img/${this.files[0]}'></td>`;
-                n++;
             }
             htm+= "</tr>";
         }
@@ -129,10 +127,10 @@ class Kino{
         for(let i=0; i<size; i++){
             htm+= "<tr>";
             for(let j=0; j<size; j++){
-                htm+= `<td><img src='img/${this.files[n%2]}'></td>`;
+                htm+= `<td><img src='img/${this.files[n]}'></td>`;
                 n++;
             }
-            htm+= "</tr>";
+            htm+="</tr>";
         }
 
         htm+= "</table>";
