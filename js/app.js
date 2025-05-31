@@ -49,6 +49,11 @@ class Kino{
         //console.log("constructor",this.container);
         this.container.onclick = () => this.play();
         this.step=0;
+
+        // Ajoute un écouteur d'événement pour les pressions de touche
+        document.addEventListener('keydown', (event)=>{
+            this.play()
+        });
     }
 
     /*
@@ -67,10 +72,9 @@ class Kino{
             case 0:this.render();break;
             case 1:this.render1();break;
             case 2:this.render2();break;
-            case 3:this.render2b();break;
-            case 4:this.render2c();break;
-            case 5:this.render9();break;
-            case 6:this.render9b();break;
+            case 3:this.render2c();break;
+            case 4:this.render9();break;
+            case 5:this.render9b();break;
         }
         console.log("Dice:", dice);
         this.step++;
@@ -135,7 +139,8 @@ class Kino{
         this.container.innerHTML = htm; // Clear previous content
     }
 
-    render2b(){
+    /*
+    render2b(){//boring
         let htm= "<table>";
         let size=2
         let n=0;
@@ -151,6 +156,7 @@ class Kino{
         htm+= "</table>";
         this.container.innerHTML = htm; // Clear previous content
     }
+    */
 
     render2c(){
         let htm= "<table>";
