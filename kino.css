@@ -24,3 +24,10 @@ tr,td {
     margin:0px;
     padding:0px;
 }
+
+#kino-container{
+    min-height: 640px;
+    min-width: 640px;
+    color:aliceblue;
+}
+

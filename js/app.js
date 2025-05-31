@@ -51,8 +51,8 @@ class Kino{
 
         //this.imageElement = document.createElement("img");
         //this.container.appendChild(this.imageElement);
-        this.shuffle();
-        this.render();
+        //this.shuffle();
+        //this.render();
 
         this.container.onclick = () => this.play();
     }
@@ -85,9 +85,11 @@ class Kino{
 
         let htm= "<table>";
 
-        for(let i=0; i<3; i++){
+        let size=3; // Default to 3x3 grid
+
+        for(let i=0; i<size; i++){
             htm+= "<tr>";
-            for(let j=0; j<3; j++){
+            for(let j=0; j<size; j++){
                 if(i===1 && j===1){
                     htm+= `<td><img src='img/${this.files[0]}'></td>`;
                 }else{
