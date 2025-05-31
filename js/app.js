@@ -35,26 +35,20 @@ const files=[
 "petscii_490.gif"
 ]
 
+function rnd(n){
+    return Math.floor(Math.random() * n);
+}
 
 class Kino{
 
     constructor(files) {
         this.files = files;
-
         this.audio= new Audio("./mp3/ranzoom (2beta).mp3");
         this.audio.loop = true;
-        console.log("Audio is playing:", this.audio);
-
         this.container = document.getElementById("kino-container");
-
-        console.log("constructor",this.container);
-
-        //this.imageElement = document.createElement("img");
-        //this.container.appendChild(this.imageElement);
-        //this.shuffle();
-        //this.render();
-
+        //console.log("constructor",this.container);
         this.container.onclick = () => this.play();
+        this.step=0;
     }
 
     /*
@@ -68,7 +62,16 @@ class Kino{
         console.log("Playing audio:", this.audio);
         this.audio.play();
         this.shuffle();
-        this.render();
+        let dice=rnd(5)
+        switch (dice) {
+            case 0:this.render();break;
+            case 1:this.render2();break;
+            case 2:this.render2b();break;
+            case 3:this.render9();break;
+            case 4:this.render9b();break;
+        }
+        console.log("Dice:", dice);
+        this.step++;
     }
 
     shuffle() {
@@ -84,7 +87,6 @@ class Kino{
         this.container.innerHTML = ''; // Clear previous content
 
         let htm= "<table>";
-
         let size=3; // Default to 3x3 grid
 
         for(let i=0; i<size; i++){
@@ -102,6 +104,70 @@ class Kino{
         htm+= "</table>";
         this.container.innerHTML = htm; // Clear previous content
     }
+
+    render2(){
+        let htm= "<table>";
+        let size=2
+        let n=0;
+        for(let i=0; i<size; i++){
+            htm+= "<tr>";
+            for(let j=0; j<size; j++){
+                htm+= `<td><img src='img/${this.files[0]}'></td>`;
+                n++;
+            }
+            htm+= "</tr>";
+        }
+
+        htm+= "</table>";
+        this.container.innerHTML = htm; // Clear previous content
+    }
+
+    render2b(){
+        let htm= "<table>";
+        let size=2
+        let n=0;
+        for(let i=0; i<size; i++){
+            htm+= "<tr>";
+            for(let j=0; j<size; j++){
+                htm+= `<td><img src='img/${this.files[n%2]}'></td>`;
+                n++;
+            }
+            htm+= "</tr>";
+        }
+
+        htm+= "</table>";
+        this.container.innerHTML = htm; // Clear previous content
+    }
+
+    render9(){
+        let htm= "<table>";
+        let size=3
+        let n=0;
+        for(let i=0; i<size; i++){
+            htm+= "<tr>";
+            for(let j=0; j<size; j++)htm+= `<td><img src='img/${this.files[0]}'></td>`;
+            htm+= "</tr>";
+        }
+        htm+= "</table>";
+        this.container.innerHTML = htm; // Clear previous content
+    }
+
+    render9b(){
+        let htm= "<table>";
+        let size=3
+        let n=0;
+        for(let i=0; i<size; i++){
+            htm+= "<tr>";
+            for(let j=0; j<size; j++){
+                htm+= `<td><img src='img/${this.files[n%2]}'></td>`;
+                n++;
+            }
+
+        }
+        htm+= "</table>";
+        this.container.innerHTML = htm; // Clear previous content
+    }
+
 }
 
 
