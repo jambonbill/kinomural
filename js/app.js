@@ -67,7 +67,7 @@ class Kino{
         console.log("Playing audio:", this.audio);
         this.audio.play();
         this.shuffle();
-        let dice=rnd(7)
+        let dice=rnd(6);
         switch (dice) {
             case 0:this.render();break;
             case 1:this.render1();break;
