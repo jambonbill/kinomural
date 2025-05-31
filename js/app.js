@@ -62,14 +62,15 @@ class Kino{
         console.log("Playing audio:", this.audio);
         this.audio.play();
         this.shuffle();
-        let dice=rnd(5)
+        let dice=rnd(7)
         switch (dice) {
             case 0:this.render();break;
             case 1:this.render1();break;
             case 2:this.render2();break;
             case 3:this.render2b();break;
-            case 4:this.render9();break;
-            case 5:this.render9b();break;
+            case 4:this.render2c();break;
+            case 5:this.render9();break;
+            case 6:this.render9b();break;
         }
         console.log("Dice:", dice);
         this.step++;
@@ -146,6 +147,26 @@ class Kino{
             }
             htm+="</tr>";
         }
+
+        htm+= "</table>";
+        this.container.innerHTML = htm; // Clear previous content
+    }
+
+    render2c(){
+        let htm= "<table>";
+        let size=2
+        let n=0;
+
+        htm+= "<tr>";
+        htm+= `<td><img src='img/${this.files[0]}'></td>`;
+        htm+= `<td><img src='img/${this.files[1]}'></td>`;
+        htm+="</tr>";
+
+        htm+= "<tr>";
+        htm+= `<td><img src='img/${this.files[1]}'></td>`;
+        htm+= `<td><img src='img/${this.files[0]}'></td>`;
+        htm+="</tr>";
+
 
         htm+= "</table>";
         this.container.innerHTML = htm; // Clear previous content
